@@ -2,7 +2,7 @@
 
 *{margin: 0px; padding: 0px;}
 
-body { font-family: "Open Sans", serif; background: #ebe9e9 !important;}
+body { font-family: "Open Sans", serif; background: #ebe9e9 !important; overflow: hidden;}
 
 ::-webkit-scrollbar{width: 5px !important; height: 5px !important;}
 ::-webkit-scrollbar-thumb{background: #ccc6c6 !important;}
@@ -10,7 +10,7 @@ body { font-family: "Open Sans", serif; background: #ebe9e9 !important;}
 
 .btn-blue{background: #0858f7 !important; font-size: 14px !important; font-weight: 600; color: #fff !important; text-transform: capitalize; border-radius: 5px !important;}
 
-header{width: 100%; height: 70px; background: #fff; position: fixed; top: 0px; left: 0px; z-index: 1000;}
+header{width: 100%; height: 70px; background: rgba(255,255,255,0.9); position: fixed; top: 0px; left: 0px; z-index: 1000; -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px);}
 header .logo img{width: 100px;}
 header .row{margin: 0px !important;}
 
@@ -36,7 +36,7 @@ header button.rounded-circle:hover svg{color: #0858f7 !important;}
 #account-menu li{font-size: 14px; padding: 10px 15px;}
 #account-menu li svg{font-size: 20px;}
 
-#notifications .MuiPaper-elevation{right: 240px !important;width: 300px !important; left: auto !important; top: 66px !important;}
+#notifications .MuiPaper-elevation{right: 240px !important;width: 300px !important; left: auto !important; top: 70px !important;}
 
 .notific_dropdown .head{padding: 10px 0px;}
 .notific_dropdown .head h4{font-size: 17px; font-weight: 600;}
@@ -53,8 +53,11 @@ header button.rounded-circle:hover svg{color: #0858f7 !important;}
 .notific_dropdown .scroll{max-height: 300px; overflow-y: scroll; overflow-x: hidden;}
 
 
-.main .sidebarWrapper{width: 20%; flex: 0 0 20%; transition: all 0.3s ease-in-out;}
-.main .sidebarWrapper .sidebar{width: 20%; height: 100vh; max-height: calc(100%-70px); position: fixed; top: 70px; left: 0px; background: #fff;overflow-y: scroll; overflow-x: hidden; padding-bottom: 40px;}
+.main .sidebarWrapper{width: 20%; flex: 0 0 20%; transition: all 0.3s;}
+.main .sidebarWrapper.toggle{width: 0%; flex: 0 0 0%;}
+.main .sidebarWrapper .sidebar{width: 20%; height: 100vh; max-height: calc(100%-70px); position: fixed; top: 70px; left: 0px; background: #fff;overflow-y: scroll; overflow-x: hidden; padding-bottom: 40px; transition: all 0.3s;}
+
+.main .sidebarWrapper.toggle .sidebar{left: -100%;}
 .main .sidebarWrapper .sidebar::-webkit-scrollbar{width: 3px !important;}
 .main .sidebarWrapper .sidebar::-webkit-scrollbar-thumb{background: transparent !important;}
 .main .sidebarWrapper:hover .sidebar::-webkit-scrollbar{background: #0858f7 !important;}
@@ -70,6 +73,7 @@ header button.rounded-circle:hover svg{color: #0858f7 !important;}
 .main .sidebarWrapper .sidebar ul li button .arrow{margin-left: auto;display: flex; align-items: center; justify-content: center; width: 25px; height: 25px; transition: all 0.3s ease-in-out;}
 .main .sidebarWrapper .sidebar ul li button:hover{background: #f1f1f1 !important;}
 .main .sidebarWrapper .sidebar ul li button.active{background: #f1f1f1 !important;}
+.main .sidebarWrapper .sidebar ul li button.active .icon svg{color: #0858f7 !important;fill: #0858f7 !important;}
 .main .sidebarWrapper .sidebar ul li button.active .arrow{transform: rotate(90deg);}
 
 .main .sidebarWrapper .sidebar ul .submenu{padding: 0px 45px; position: relative;transition: all 0.3s; height: 0px;;}
@@ -78,9 +82,9 @@ header button.rounded-circle:hover svg{color: #0858f7 !important;}
 .main .sidebarWrapper .sidebar ul .submenu li a{color: #5e5d72 !important; text-decoration: none; display: block; padding: 6px 0px; font-size: 14px; font-weight: 500; transition: all 0.3s;}
 .main .sidebarWrapper .sidebar ul .submenu li a:hover{color: #0858f7 !important;}
 
-.main .sidebarWrapper .sidebar ul .submenuWrapper{transition: all 0.3s; height: 0px; overflow: hidden;}
+.main .sidebarWrapper .sidebar ul .submenuWrapper{transition: all 0.4s; height: 0px; overflow: hidden; opacity: 0;}
 .main .sidebarWrapper .sidebar ul .submenuWrapper.colapsed .submenu{opacity: 0;}
-.main .sidebarWrapper .sidebar ul .submenuWrapper.colapse{height: auto; overflow: inherit;}
+.main .sidebarWrapper .sidebar ul .submenuWrapper.colapse{height: auto; overflow: inherit;opacity: 1;}
 .main .sidebarWrapper .sidebar ul .submenuWrapper.colapse .submenu{opacity: 1; height: auto;}
 
 .logoutWrapper{padding: 0px 25px;}
@@ -90,3 +94,68 @@ header button.rounded-circle:hover svg{color: #0858f7 !important;}
 .logoutWrapper .logoutBox::after{content: ''; width: 30px; height: 30px; background: #0858f7; border-radius: 100%; position: absolute; top: 20px; left: 10px; opacity: 0.5;}
 .logoutWrapper .logoutBox button{font-size: 14px !important; font-weight: 600 !important;}
 .logoutWrapper .logoutBox button svg{margin-right: 5px; font-size: 18px !important;}
+
+
+.main .content{width: 80%; flex: 0 0 80%; transition: all 0.3s;}
+.main .content.toggle{width: 100%; flex: 0 0 100%;}
+
+.right-content{padding: 90px 30px; padding-bottom: 10px;}
+
+.dashboardBoxWrapper{gap: 20px; width: 100%; flex-wrap: wrap;}
+.dashboardBoxWrapper .dashboardBox{width: 48%; height: 170px; border-radius: 10px; overflow: hidden; padding: 20px; display: flex; flex-direction: column; justify-content: space-around; text-align: left !important; justify-content: flex-start !important; position: relative; color: #fff; text-transform: capitalize !important;}
+
+
+.dashboardBoxWrapper .dashboardBox .col1 h4{font-size: 20px; font-weight: 600;}
+.dashboardBoxWrapper .dashboardBox .col1 span{font-size: 35px; font-weight: bold;}
+.dashboardBoxWrapper .dashboardBox .chart{opacity: 0.060; position: absolute; bottom: 20px; left: 20px;}
+.dashboardBoxWrapper .dashboardBox .chart svg{font-size: 110px; color: #000; }
+.dashboardBoxWrapper .dashboardBox .bottomElement{position: relative; top: 15px;}
+
+.dashboardBoxWrapper .dashboardBox .bottomElement .MuiButtonBase-root svg{margin-right: 10px !important;}
+
+.dashboardBoxWrapper .dashboardBox .icon{display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 10px; background-image: linear-gradient(to bottom right, rgba(0,0,0,0.0), rgba(0,0,0,0.3));}
+.dashboardBoxWrapper .dashboardBox .icon svg{font-size: 36px; opacity: 0.4; color: #fff;}
+.dashboardBoxWrapper .dashboardBox .toggleIcon{font-size: 22px; color: rgba(0, 0, 0, 0.5); cursor: pointer; min-width: 40px !important; width: 40px !important; height: 40px !important; border-radius: 50% !important;}
+.dashboardBoxWrapperRow .box{width: 100%; height: 100%;}
+
+.dropdownMenu .MuiList-root svg{color: #000 !important; font-size: 17px !important; margin-right: 10px !important;}
+
+.graphBox{background-image: linear-gradient(#1e5dd0, #3566c9); border-radius: 10px; padding: 25px;}
+.toggleIcon svg{color: #fff !important; font-size: 20px !important; opacity: 1 !important;}
+.graphBox h4{font-size: 20px; font-weight: 600;}
+
+.graphBox p{font-size: 13px; color: #fff; opacity: 0.7;}
+
+.card{margin: 20px 0px; border-radius: 10px;}
+.card .hd{font-size: 18px; font-weight: bold; color: #403e57;}
+
+
+.cardFilters .col h4{font-size: 14px !important; font-weight: 800; text-transform: capitalize; color: #403e57;}
+
+h1, h2, h3, h4, h5, h6, p {color: #403e57;}
+
+.table-responsive::-webkit-scrollbar-thumb{background: #ccc;}
+
+.table .thead-dark th{background-color: #1e5dd0 !important; border-color: rgba(255,255,255,0.1) !important; font-size: 13px !important;}
+
+.table tbody td{font-size: 14px !important; color: #28263d; font-weight: 500;}
+.table tbody .actions button{min-width: 32px !important; width: 32px !important; height: 32px; margin: 0px 3px !important;}
+.table tbody .actions button svg{font-size: 32px !important;}
+
+.table tbody .actions button .secondary{background-color: rgba(203, 60, 231, 0.2) !important;}
+.table tbody .actions button .success{background-color: rgba(26, 159, 83, 0.2) !important;}
+.table tbody .actions button .error{background-color: rgba(241, 17, 51, 0.2) !important;}
+
+table.v-align td{vertical-align: middle !important;}
+
+.table td .old, .table td .new{display: block; width: 100%;}
+table td .imgWrapper{width: 20%; flex: 0 0 20%;}
+table td .info{width: 65%;flex: 0 0 65%;}
+table td .info h6{overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; font-weight: 600; margin-bottom: 0px;}
+table td .info p{font-size: 13px; line-height: 18px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #5e5d72; margin-bottom: 0px;}
+
+table.v-align td .prodBox{width: 270px;}
+
+.tableFooter{padding-bottom: 20px;}
+.tableFooter .pagination{margin-left: auto;}
+.tableFooter p{font-size: 14px; font-weight: 500; margin-bottom: 0px;}

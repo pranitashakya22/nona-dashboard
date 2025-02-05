@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from '../../assets/images/NonabazzarLogo.jpg';
 import Button from '@mui/material/Button';
 import { MdMenuOpen } from "react-icons/md";
 import { MdOutlineMenu } from "react-icons/md";
-import SearchBar from "../SearchBar/index.js";
+import SearchBar from "../SearchBar/index.jsx";
 import { MdLightMode } from "react-icons/md";
 import { MdDarkMode } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
@@ -20,6 +20,7 @@ import Logout from '@mui/icons-material/Logout';
 import { RiLockPasswordFill } from "react-icons/ri";
 import { Divider } from "@mui/material";
 import notificUser from '../../assets/images/notificationUser.jpg';
+import { MyContext } from "../../App.js";
 
 
 
@@ -29,6 +30,11 @@ const Header = () => {
     const [isOpenNotificationDrop, setisOpenNotificationDrop] = useState(false);
     const openMyAcc = Boolean(anchorEl);
     const openNotification = Boolean(isOpenNotificationDrop);
+
+
+    const context = useContext(MyContext)
+
+
     const handleOpenMyAccDrop = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -56,7 +62,12 @@ const Header = () => {
                         </div>
 
                         <div className="col-sm-3 d-flex align-items-center sec2 ps-4">
-                            <Button className="rounded-circle"><MdMenuOpen /></Button>
+                            <Button className="rounded-circle me-3" onClick={()=>context.setisToggleSidebar(!context.isToggleSidebar)}>
+                            {
+                                context.isToggleSidebar===false ? <MdMenuOpen /> : <MdOutlineMenu /> 
+                            }
+                            
+                            </Button>
                             <SearchBar />
                         </div>
 
