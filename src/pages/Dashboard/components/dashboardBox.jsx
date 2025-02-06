@@ -4,8 +4,9 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 import { FaArrowTrendDown } from "react-icons/fa6";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoIosTimer } from "react-icons/io";
+import { MyContext } from "../../../App";
 
 
 
@@ -15,6 +16,12 @@ const DashboardBox = (props) => {
     const open = Boolean(anchorEl);
 
     const ITEM_HEIGHT = 48;
+
+    const context = useContext(MyContext);
+
+    useEffect(()=>{
+        context.setisHideSidebarandNavbar(false);
+    },[])
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);

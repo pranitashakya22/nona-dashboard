@@ -32,8 +32,7 @@ const Header = () => {
     const openNotification = Boolean(isOpenNotificationDrop);
 
 
-    const context = useContext(MyContext)
-
+    const context = useContext(MyContext);
 
     const handleOpenMyAccDrop = (event) => {
         setAnchorEl(event.currentTarget);
@@ -61,12 +60,12 @@ const Header = () => {
                             </Link>
                         </div>
 
-                        <div className="col-sm-3 d-flex align-items-center sec2 ps-4">
-                            <Button className="rounded-circle me-3" onClick={()=>context.setisToggleSidebar(!context.isToggleSidebar)}>
-                            {
-                                context.isToggleSidebar===false ? <MdMenuOpen /> : <MdOutlineMenu /> 
-                            }
-                            
+                        <div className="col-sm-3 d-flex align-items-center sec2">
+                            <Button className="rounded-circle me-3" onClick={() => context.setisToggleSidebar(!context.isToggleSidebar)}>
+                                {
+                                    context.isToggleSidebar === false ? <MdMenuOpen /> : <MdOutlineMenu />
+                                }
+
                             </Button>
                             <SearchBar />
                         </div>
@@ -74,247 +73,258 @@ const Header = () => {
                         <div className="col-sm-7 d-flex align-items-center justify-content-end sec3">
                             <Button className="rounded-circle me-3"><MdLightMode /></Button>
                             <Button className="rounded-circle me-3"><FaShoppingCart /></Button>
-                            
+
                             <Button className="rounded-circle me-3"><MdEmail /></Button>
 
                             <div className="notificationWrapper position-relative">
-                            <Button className="rounded-circle me-3" onClick={handleOpenNotificationDrop}><FaRegBell /></Button>
-                            <Menu
-                                anchorEl={isOpenNotificationDrop}
-                                className="notifications notific_dropdown"
-                                id="notifications"
-                                open={openNotification}
-                                onClose={handleCloseNotificationDrop}
-                                onClick={handleCloseNotificationDrop}                                
-                                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-                            >           
-
-                                <div className="head ps-3 pb-0">
-                                  <h4>Orders (12) </h4>
-                                </div>
-                                <Divider className="mb-1"/>
-                                
-                                <div className="scroll">
-                                <MenuItem onClick={handleCloseNotificationDrop}>
-                                    <div className="d-flex">
-                                    <div>
-                                    <div className="userImg">
-                                        <span className="rounded-circle">
-                                            <img src={notificUser} alt="admin profile" />
-                                        </span>
-                                    </div>
-                                    </div>
-
-                                    <div className="dropdownInfo">
-                                        <h4>
-                                            <span>
-                                                <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
-                                            </span>
-                                        </h4>
-                                        <p className="text-sky">few seconds ago</p>
-                                    </div>
-                                    </div>
-                                </MenuItem>
-                                <MenuItem onClick={handleCloseNotificationDrop}>
-                                    <div className="d-flex">
-                                    <div>
-                                    <div className="userImg">
-                                        <span className="rounded-circle">
-                                            <img src={notificUser} alt="admin profile" />
-                                        </span>
-                                    </div>
-                                    </div>
-
-                                    <div className="dropdownInfo">
-                                        <h4>
-                                            <span>
-                                                <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
-                                            </span>
-                                        </h4>
-                                        <p className="text-sky">few seconds ago</p>
-                                    </div>
-                                    </div>
-                                </MenuItem>
-                                <MenuItem onClick={handleCloseNotificationDrop}>
-                                    <div className="d-flex">
-                                    <div>
-                                    <div className="userImg">
-                                        <span className="rounded-circle">
-                                            <img src={notificUser} alt="admin profile" />
-                                        </span>
-                                    </div>
-                                    </div>
-
-                                    <div className="dropdownInfo">
-                                        <h4>
-                                            <span>
-                                                <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
-                                            </span>
-                                        </h4>
-                                        <p className="text-sky">few seconds ago</p>
-                                    </div>
-                                    </div>
-                                </MenuItem>
-                                <MenuItem onClick={handleCloseNotificationDrop}>
-                                    <div className="d-flex">
-                                    <div>
-                                    <div className="userImg">
-                                        <span className="rounded-circle">
-                                            <img src={notificUser} alt="admin profile" />
-                                        </span>
-                                    </div>
-                                    </div>
-
-                                    <div className="dropdownInfo">
-                                        <h4>
-                                            <span>
-                                                <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
-                                            </span>
-                                        </h4>
-                                        <p className="text-sky">few seconds ago</p>
-                                    </div>
-                                    </div>
-                                </MenuItem>
-                                <MenuItem onClick={handleCloseNotificationDrop}>
-                                    <div className="d-flex">
-                                    <div>
-                                    <div className="userImg">
-                                        <span className="rounded-circle">
-                                            <img src={notificUser} alt="admin profile" />
-                                        </span>
-                                    </div>
-                                    </div>
-
-                                    <div className="dropdownInfo">
-                                        <h4>
-                                            <span>
-                                                <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
-                                            </span>
-                                        </h4>
-                                        <p className="text-sky">few seconds ago</p>
-                                    </div>
-                                    </div>
-                                </MenuItem>
-                                <MenuItem onClick={handleCloseNotificationDrop}>
-                                    <div className="d-flex">
-                                    <div>
-                                    <div className="userImg">
-                                        <span className="rounded-circle">
-                                            <img src={notificUser} alt="admin profile" />
-                                        </span>
-                                    </div>
-                                    </div>
-
-                                    <div className="dropdownInfo">
-                                        <h4>
-                                            <span>
-                                                <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
-                                            </span>
-                                        </h4>
-                                        <p className="text-sky">few seconds ago</p>
-                                    </div>
-                                    </div>
-                                </MenuItem>
-                                <MenuItem onClick={handleCloseNotificationDrop}>
-                                    <div className="d-flex">
-                                    <div>
-                                    <div className="userImg">
-                                        <span className="rounded-circle">
-                                            <img src={notificUser} alt="admin profile" />
-                                        </span>
-                                    </div>
-                                    </div>
-
-                                    <div className="dropdownInfo">
-                                        <h4>
-                                            <span>
-                                                <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
-                                            </span>
-                                        </h4>
-                                        <p className="text-sky">few seconds ago</p>
-                                    </div>
-                                    </div>
-                                </MenuItem>
-                                <MenuItem onClick={handleCloseNotificationDrop}>
-                                    <div className="d-flex">
-                                    <div>
-                                    <div className="userImg">
-                                        <span className="rounded-circle">
-                                            <img src={notificUser} alt="admin profile" />
-                                        </span>
-                                    </div>
-                                    </div>
-
-                                    <div className="dropdownInfo">
-                                        <h4>
-                                            <span>
-                                                <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
-                                            </span>
-                                        </h4>
-                                        <p className="text-sky">few seconds ago</p>
-                                    </div>
-                                    </div>
-                                </MenuItem>
-                                </div>
-
-
-                                <div className="ps-3 pe-3 w-100 pt-2 pb-1">
-                                <Button className="btn-blue w-100">View all notifications</Button>
-
-                                </div>
-
-
-                            </Menu>
-                            </div>
-                         
-
-
-                            <div className="myAccWrapper">
-                                <Button className="myAcc d-flex align-items-center" onClick={handleOpenMyAccDrop}>
-                                    <div className="userImg">
-                                        <span className="rounded-circle">
-                                            <img src={userImg} alt="admin profile" />
-                                        </span>
-                                    </div>
-
-                                    <div className="userInfo">
-                                        <h4>Admin User</h4>
-                                        <p className="mb-0">@admin25</p>
-
-                                    </div>
-                                </Button>
+                                <Button className="rounded-circle me-3" onClick={handleOpenNotificationDrop}><FaRegBell /></Button>
                                 <Menu
-                                anchorEl={anchorEl}
-                                className="account-name"
-                                id="account-menu"
-                                open={openMyAcc}
-                                onClose={handleCloseMyAccDrop}
-                                onClick={handleCloseMyAccDrop}                                
-                                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-                            >                                
-                    
-                                <MenuItem onClick={handleCloseMyAccDrop}>
-                                    <ListItemIcon>
-                                        <PersonAdd fontSize="small" />
-                                    </ListItemIcon>
-                                    My Account
-                                </MenuItem>
-                                <MenuItem onClick={handleCloseMyAccDrop}>
-                                    <ListItemIcon>
-                                        <RiLockPasswordFill fontSize="large" />
-                                    </ListItemIcon>
-                                    Reset Password
-                                </MenuItem>
-                                <MenuItem onClick={handleCloseMyAccDrop}>
-                                    <ListItemIcon>
-                                        <Logout fontSize="small" />
-                                    </ListItemIcon>
-                                    Logout
-                                </MenuItem>
-                            </Menu>
+                                    anchorEl={isOpenNotificationDrop}
+                                    className="notifications notific_dropdown"
+                                    id="notifications"
+                                    open={openNotification}
+                                    onClose={handleCloseNotificationDrop}
+                                    onClick={handleCloseNotificationDrop}
+                                    transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                                    anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+                                >
+
+                                    <div className="head ps-3 pb-0">
+                                        <h4>Orders (12) </h4>
+                                    </div>
+                                    <Divider className="mb-1" />
+
+                                    <div className="scroll">
+                                        <MenuItem onClick={handleCloseNotificationDrop}>
+                                            <div className="d-flex">
+                                                <div>
+                                                    <div className="userImg">
+                                                        <span className="rounded-circle">
+                                                            <img src={notificUser} alt="admin profile" />
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div className="dropdownInfo">
+                                                    <h4>
+                                                        <span>
+                                                            <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
+                                                        </span>
+                                                    </h4>
+                                                    <p className="text-sky">few seconds ago</p>
+                                                </div>
+                                            </div>
+                                        </MenuItem>
+                                        <MenuItem onClick={handleCloseNotificationDrop}>
+                                            <div className="d-flex">
+                                                <div>
+                                                    <div className="userImg">
+                                                        <span className="rounded-circle">
+                                                            <img src={notificUser} alt="admin profile" />
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div className="dropdownInfo">
+                                                    <h4>
+                                                        <span>
+                                                            <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
+                                                        </span>
+                                                    </h4>
+                                                    <p className="text-sky">few seconds ago</p>
+                                                </div>
+                                            </div>
+                                        </MenuItem>
+                                        <MenuItem onClick={handleCloseNotificationDrop}>
+                                            <div className="d-flex">
+                                                <div>
+                                                    <div className="userImg">
+                                                        <span className="rounded-circle">
+                                                            <img src={notificUser} alt="admin profile" />
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div className="dropdownInfo">
+                                                    <h4>
+                                                        <span>
+                                                            <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
+                                                        </span>
+                                                    </h4>
+                                                    <p className="text-sky">few seconds ago</p>
+                                                </div>
+                                            </div>
+                                        </MenuItem>
+                                        <MenuItem onClick={handleCloseNotificationDrop}>
+                                            <div className="d-flex">
+                                                <div>
+                                                    <div className="userImg">
+                                                        <span className="rounded-circle">
+                                                            <img src={notificUser} alt="admin profile" />
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div className="dropdownInfo">
+                                                    <h4>
+                                                        <span>
+                                                            <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
+                                                        </span>
+                                                    </h4>
+                                                    <p className="text-sky">few seconds ago</p>
+                                                </div>
+                                            </div>
+                                        </MenuItem>
+                                        <MenuItem onClick={handleCloseNotificationDrop}>
+                                            <div className="d-flex">
+                                                <div>
+                                                    <div className="userImg">
+                                                        <span className="rounded-circle">
+                                                            <img src={notificUser} alt="admin profile" />
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div className="dropdownInfo">
+                                                    <h4>
+                                                        <span>
+                                                            <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
+                                                        </span>
+                                                    </h4>
+                                                    <p className="text-sky">few seconds ago</p>
+                                                </div>
+                                            </div>
+                                        </MenuItem>
+                                        <MenuItem onClick={handleCloseNotificationDrop}>
+                                            <div className="d-flex">
+                                                <div>
+                                                    <div className="userImg">
+                                                        <span className="rounded-circle">
+                                                            <img src={notificUser} alt="admin profile" />
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div className="dropdownInfo">
+                                                    <h4>
+                                                        <span>
+                                                            <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
+                                                        </span>
+                                                    </h4>
+                                                    <p className="text-sky">few seconds ago</p>
+                                                </div>
+                                            </div>
+                                        </MenuItem>
+                                        <MenuItem onClick={handleCloseNotificationDrop}>
+                                            <div className="d-flex">
+                                                <div>
+                                                    <div className="userImg">
+                                                        <span className="rounded-circle">
+                                                            <img src={notificUser} alt="admin profile" />
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div className="dropdownInfo">
+                                                    <h4>
+                                                        <span>
+                                                            <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
+                                                        </span>
+                                                    </h4>
+                                                    <p className="text-sky">few seconds ago</p>
+                                                </div>
+                                            </div>
+                                        </MenuItem>
+                                        <MenuItem onClick={handleCloseNotificationDrop}>
+                                            <div className="d-flex">
+                                                <div>
+                                                    <div className="userImg">
+                                                        <span className="rounded-circle">
+                                                            <img src={notificUser} alt="admin profile" />
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div className="dropdownInfo">
+                                                    <h4>
+                                                        <span>
+                                                            <b>Pranita Shakya</b> added to her favorite list <b>iphone case</b>
+                                                        </span>
+                                                    </h4>
+                                                    <p className="text-sky">few seconds ago</p>
+                                                </div>
+                                            </div>
+                                        </MenuItem>
+                                    </div>
+
+
+                                    <div className="ps-3 pe-3 w-100 pt-2 pb-1">
+                                        <Button className="btn-blue w-100">View all notifications</Button>
+                                        
+                                    </div>
+
+
+                                </Menu>
                             </div>
+
+                            {
+                                context.isLogin !== true ? 
+                                <Link to={'/login'}> <Button className="btn-blue btn-lg btn-round">Sign In</Button></Link>
+                                    :
+                                    <div className="myAccWrapper">
+                                        <Button className="myAcc d-flex align-items-center" onClick={handleOpenMyAccDrop}>
+                                            <div className="userImg">
+                                                <span className="rounded-circle">
+                                                    <img src={userImg} alt="admin profile" />
+                                                </span>
+                                            </div>
+
+                                            <div className="userInfo">
+                                                <h4>Admin User</h4>
+                                                <p className="mb-0">@admin25</p>
+
+                                            </div>
+                                        </Button>
+                                        <Menu
+                                            anchorEl={anchorEl}
+                                            className="account-name"
+                                            id="account-menu"
+                                            open={openMyAcc}
+                                            onClose={handleCloseMyAccDrop}
+                                            onClick={handleCloseMyAccDrop}
+                                            transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                                            anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+                                        >
+
+                                            <MenuItem onClick={handleCloseMyAccDrop}>
+                                                <ListItemIcon>
+                                                    <PersonAdd fontSize="small" />
+                                                </ListItemIcon>
+                                                My Account
+                                            </MenuItem>
+                                            <MenuItem onClick={handleCloseMyAccDrop}>
+                                                <ListItemIcon>
+                                                    <RiLockPasswordFill fontSize="large" />
+                                                </ListItemIcon>
+                                                Reset Password
+                                            </MenuItem>
+                                            <MenuItem onClick={handleCloseMyAccDrop}>
+                                                <ListItemIcon>
+                                                    <Logout fontSize="small" />
+                                                </ListItemIcon>
+                                                Logout
+                                            </MenuItem>
+                                        </Menu>
+                                    </div>
+
+                            }
+
+
+
+
+
+
+
 
                         </div>
 

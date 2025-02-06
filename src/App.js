@@ -5,6 +5,8 @@ import Dashboard from './pages/Dashboard';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import { createContext, useEffect, useState } from "react";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 
 const MyContext = createContext();
@@ -12,10 +14,18 @@ const MyContext = createContext();
 function App() {
 
   const [isToggleSidebar, setisToggleSidebar] =useState(false);
+  const [isLogin, setisLogin] = useState(false);
+  const [isHideSidebarandNavbar, setisHideSidebarandNavbar] = useState(false);
+  
+
 
   const values = {
     isToggleSidebar,
-    setisToggleSidebar
+    setisToggleSidebar,
+    isLogin,
+    setisLogin,
+    isHideSidebarandNavbar,
+    setisHideSidebarandNavbar
 
   }
 
@@ -23,16 +33,28 @@ function App() {
   return (
     <BrowserRouter>
     <MyContext.Provider value={values}>
-      <Header />
+      
+
+      {
+        isHideSidebarandNavbar !== true &&
+        <Header />
+      }
+      
       <div className="main d-flex">
-        <div className={`sidebarWrapper ${isToggleSidebar===true ? 'toggle' : ''}`}>
+        {
+          isHideSidebarandNavbar !== true &&
+          <div className={`sidebarWrapper ${isToggleSidebar===true ? 'toggle' : ''}`}>
           <Sidebar />
         </div>
+        }
+        
 
-        <div className={`content ${isToggleSidebar===true ? 'toggle' : ''}`}>
+        <div className={`content ${isHideSidebarandNavbar===true && 'full'} ${isToggleSidebar===true ? 'toggle' : ''}`}>
           <Routes>
             <Route path="/" exact={true} element={<Dashboard />} />
             <Route path="/dashboard" exact={true} element={<Dashboard />} />
+            <Route path="/login" exact={true} element={<Login />} />
+            <Route path="/signUp" exact={true} element={<SignUp />} />
           </Routes>
         </div>
       </div>
