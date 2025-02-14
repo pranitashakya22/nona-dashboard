@@ -16,8 +16,21 @@ function App() {
   const [isToggleSidebar, setisToggleSidebar] =useState(false);
   const [isLogin, setisLogin] = useState(false);
   const [isHideSidebarandNavbar, setisHideSidebarandNavbar] = useState(false);
+  const [themeMode, setThemeMode] = useState(true);
   
 
+  useEffect(()=>{
+    if(themeMode===true){
+      document.body.classList.remove('dark');
+      document.body.classList.add('light');
+      localStorage.setItem('themeMode', 'light');
+    }   
+    else{
+      document.body.classList.remove('light');
+      document.body.classList.add('dark');
+      localStorage.setItem('themeMode', 'dark');
+    }
+  },[themeMode])
 
   const values = {
     isToggleSidebar,
@@ -25,7 +38,9 @@ function App() {
     isLogin,
     setisLogin,
     isHideSidebarandNavbar,
-    setisHideSidebarandNavbar
+    setisHideSidebarandNavbar,
+    themeMode,
+    setThemeMode
 
   }
 

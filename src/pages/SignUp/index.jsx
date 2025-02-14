@@ -48,7 +48,7 @@ const SignUp = ()=>{
                     <form>
                     <div className={`form-group position-relative ${inputIndex===0 && 'focus'}`}>
                             <span className="icon"><FaUserCircle/></span>
-                            <input type="text" className='form-control' placeholder='Enter your name' onFocus={()=>focusInput(0)} onBlur={()=>setInputIndex(null)}/>
+                            <input type="text" className='form-control' placeholder='Enter your name' onFocus={()=>focusInput(0)} onBlur={()=>setInputIndex(null)} autoFocus/>
                         </div>
                         <div className={`form-group position-relative ${inputIndex===1 && 'focus'}`}>
                             <span className="icon"><MdEmail/></span>
